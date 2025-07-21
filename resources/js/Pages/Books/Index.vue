@@ -24,7 +24,7 @@
                             <Link :href="`/books/${book.id}/edit`">Editar</Link>
                         </td>
                         <td>
-                            <button @click="softDestroyBooks(books.id)">Ocultar</button>
+                            <button @click="DestroyBooks(book.id)">Eliminar</button>
                         </td>
                     </tr>
                 </tbody>
@@ -41,7 +41,7 @@
         books: Array
     });
 
-    function softDestroyBooks(id) {
+    function DestroyBooks(id) {
         router.delete(`/books/${id}`);
     }
 
