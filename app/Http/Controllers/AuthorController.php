@@ -42,7 +42,7 @@ class AuthorController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Author $author)
     {
         //
     }
@@ -50,23 +50,32 @@ class AuthorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Author $author)
     {
-        //
+        return Inertia::render('Authors/Edit', [
+            'author' => $author
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Author $author)
     {
-        //
+        $request->validate([
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'country'=> 'required|string|max:255'
+        ]);
+
+        $author->update($request->only('first_name', 'last_name', 'country'));
+        return redirect()->route('authors.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Author $author)
     {
         //
     }

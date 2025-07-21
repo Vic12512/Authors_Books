@@ -20,6 +20,9 @@
                         <td>{{ author.first_name }}</td>
                         <td>{{ author.last_name }}</td>
                         <td>{{ author.country }}</td>
+                        <td>
+                            <Link :href="`/authors/${author.id}/edit`">Editar</Link>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -29,6 +32,8 @@
 </template>
 
 <script setup>
+    import { Link } from '@inertiajs/vue3';
+
     defineProps({
         authors: Array
     });

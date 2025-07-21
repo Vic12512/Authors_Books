@@ -18,7 +18,7 @@
     import {ref} from 'vue';
     import {router} from '@inertiajs/vue3';
 
-    //contantes
+    //Datos
     const first_name = ref('');
     const last_name = ref('');
     const country = ref('');
