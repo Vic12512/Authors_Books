@@ -23,6 +23,9 @@
                         <td>
                             <Link :href="`/authors/${author.id}/edit`">Editar</Link>
                         </td>
+                        <td>
+                            <button @click="softDestroyAuthor(author.id)">Ocultar</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -32,10 +35,14 @@
 </template>
 
 <script setup>
-    import { Link } from '@inertiajs/vue3';
+    import { Link, router } from '@inertiajs/vue3';
 
     defineProps({
         authors: Array
     });
+
+    function softDestroyAuthor(id) {
+        router.delete(`/authors/$id`);
+    }
 
 </script>

@@ -73,10 +73,13 @@ class AuthorController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Hide the specified resource from storage.
      */
-    public function destroy(Author $author)
+    public function softDestroy(Author $author)
     {
-        //
+        $author->active  = !$author->active;
+        $author->save();
+
+        return redirect()->route('authors.index');
     }
 }
