@@ -16,7 +16,7 @@
                 </thead>
 
                 <tbody>
-                    <tr v-for="book in books" :key="author.id">
+                    <tr v-for="book in books" :key="book.id">
                         <td>{{ book.name }}</td>
                         <td>{{ book.publication_date }}</td>
                         <td>{{ book.edition }}</td>
