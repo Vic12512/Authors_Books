@@ -32,7 +32,7 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'name' => 'required',
             'publication_date' => 'required',
             'edition'=> 'required',
@@ -40,7 +40,14 @@ class BookController extends Controller
             'authors.*'=> 'exists:author,id',
         ]);
 
-        Book::create($request->only('name', 'publication_date', 'edition'));
+        $book = Book::create([
+            'name' => $validated['name'],
+            'publication_date' => $validated['publication_date'],
+            'edition'=> $validated['edition'],
+        ]);
+
+        $book->authors()->sync($validated['authors']);
+
         return redirect()->route('books.index');
     }
 
