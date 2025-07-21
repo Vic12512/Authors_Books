@@ -1,41 +1,57 @@
 <template>
     <title>Index</title>
 
-    <div>
-        <h1>Vista de Libros</h1>
+    <Lauyout>
+        <div class="space-y-4">
+            <div class="flex justify-between items-center">
+                <h1>Vista de Libros</h1>
+                <div class="mb-3">
+                    <a href="/books/create"
+                        class="btn btn-success bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md">
+                        Crear Libro
+                    </a>
+                </div>
+            </div>
+            
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-[#2C2C2C] rounded-lg overflow-hidden">
+                    <thead class="bg-[#3A3A3A] text-[#E0E0E0]">
+                        <tr>
+                            <td class="px-4 py-2 text-left">Nombre</td>
+                            <td class="px-4 py-2 text-left">Fecha de publicación</td>
+                            <td class="px-4 py-2 text-left">Edición</td>
+                        </tr>
+                    </thead>
 
-        <a href="/books/create">Crear Libro</a>
-        <div>
-            <table>
-                <thead>
-                    <tr>
-                        <td>Nombre</td>
-                        <td>Fecha de publicación</td>
-                        <td>Edición</td>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr v-for="book in books" :key="book.id">
-                        <td>{{ book.name }}</td>
-                        <td>{{ book.publication_date }}</td>
-                        <td>{{ book.edition }}</td>
-                        <td>
-                            <Link :href="`/books/${book.id}/edit`">Editar</Link>
-                        </td>
-                        <td>
-                            <button @click="DestroyBooks(book.id)">Eliminar</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                    <tbody class="table-group-divider">
+                        <tr v-for="book in books" :key="book.id" class="hover:bg-[#393939] border-b border-[#444]">
+                            <td class="px-4 py-2">{{ book.name }}</td>
+                            <td class="px-4 py-2">{{ book.publication_date }}</td>
+                            <td class="px-4 py-2">{{ book.edition }}</td>
+                            <td class="px-4 py-2">
+                                <Link :href="`/books/${book.id}/edit`"
+                                    class="btn btn-primary text-white px-3 py-1">
+                                    Editar
+                                </Link>
+                            </td>
+                            <td>
+                                <button @click="DestroyBooks(book.id)"
+                                    class="bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 text-sm focus:outline-none" style="border-radius: 6px;">
+                                    Eliminar
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
-
+    </Lauyout>
+    
 </template>
 
 <script setup>
     import { Link, router } from '@inertiajs/vue3';
+    import Lauyout from '../../Layout/Lauyout.vue';
 
     defineProps({
         books: Array

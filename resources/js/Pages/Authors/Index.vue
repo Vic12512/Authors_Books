@@ -3,12 +3,14 @@
 
     <Lauyout> 
         <div class="space-y-4">
-            <div class="flex justify-between items-center">
+            <div >
                 <h1 class="text-2xl font-bold">Vista de Autores</h1>
                 <div class="mb-3">
-                    <a href="/authors/create" class="btn btn-success bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md">Crear Autor</a>
+                    <a href="/authors/create" 
+                        class="btn btn-success bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md">
+                        Crear Autor
+                    </a>
                 </div>
-
             </div>
 
             <div class="overflow-x-auto">
@@ -27,10 +29,16 @@
                             <td class="px-4 py-2">{{ author.last_name }}</td>
                             <td class="px-4 py-2">{{ author.country }}</td>
                             <td class="px-4 py-2">
-                                <Link :href="`/authors/${author.id}/edit`" class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-md text-sm">Editar</Link>
+                                <Link :href="`/authors/${author.id}/edit`" 
+                                    class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-md text-sm">
+                                    Editar
+                                </Link>
                             </td>
                             <td>
-                                <button @click="softDestroyAuthor(author.id)" class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 text-sm focus:outline-none" style="border-radius: 6px;">Ocultar</button>
+                                <button @click="softDestroyAuthor(author.id)" 
+                                    class="bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 text-sm focus:outline-none" style="border-radius: 6px;">
+                                    Ocultar
+                                </button>
                             </td>
                         </tr>
                     </tbody>
