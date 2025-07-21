@@ -12,7 +12,7 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        $authors = Author::all();
+        $authors = Author::where('active', true)->get();
         return Inertia::render('Authors/Index', ['authors' => $authors]);
     }
 

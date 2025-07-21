@@ -42,7 +42,7 @@
     });
 
     function softDestroyAuthor(id) {
-        router.delete(`/authors/$id`);
+        router.delete(`/authors/${id}`);
     }
 
 </script>
