@@ -3,7 +3,7 @@
 
     <Lauyout>
         <div>
-            <h1 text-center mb-4 text-white>Crear Libros</h1>
+            <h1 class="text-center mb-4 text-white">Crear Libros</h1>
 
             <form @submit.prevent="submit" class="d-grid gap-3">
                 <input 

@@ -1,22 +1,43 @@
 <template>
     <title>Create</title>
 
-    <div>
-        <h1>Crear Autor</h1>
-        <form @submit.prevent="submit">
-            <input v-model="first_name" type="text" placeholder="Nombre" name="Nombre" id="Nombre">
-            <input v-model="last_name" type="text" placeholder="Apellido" name="Apellido" id="Apellido">
-            <input v-model="country" type="text" placeholder="País" name="País" id="País">
-            <button type="submit">Guardar</button>
+    <Lauyout>
+        <div>
+            <h1 class="text-center mb-4 text-white">Crear Autor</h1>
+            <form @submit.prevent="submit" class="d-grid gap-3">
+                <input 
+                    v-model="first_name" 
+                    type="text" 
+                    placeholder="Nombre" name="Nombre" id="Nombre"
+                    class="form-control rounded-pill bg-dark text-light border-0 shadow-sm"
+                    >
 
-        </form>
-    </div>
+                <input 
+                    v-model="last_name" 
+                    type="text" 
+                    placeholder="Apellido" name="Apellido" id="Apellido"
+                    class="form-control rounded-pill bg-dark text-light border-0 shadow-sm"
+                    >
+                
+                <input 
+                    v-model="country" 
+                    type="text" 
+                    placeholder="País" name="País" id="País"
+                    class="form-control rounded-pill bg-dark text-light border-0 shadow-sm"
+                >
+
+                <button type="submit" class="btn btn-success rounded-pill py-2 px-4">Guardar</button>
+
+            </form>
+        </div>
+    </Lauyout>
 </template>
 
 <script setup>
     //importaciones
     import {ref} from 'vue';
     import {router} from '@inertiajs/vue3';
+    import Lauyout from '../../Layout/Lauyout.vue';
 
     //Datos
     const first_name = ref('');
