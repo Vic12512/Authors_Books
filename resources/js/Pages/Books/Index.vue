@@ -40,6 +40,12 @@
                                     Eliminar
                                 </button>
                             </td>
+                            <td class="px-4 py-2">
+                                <Link :href="`/books/${book.id}`" 
+                                    class="btn btn-secondary text-white px-3 py-1">
+                                    Detalles
+                                </Link>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
