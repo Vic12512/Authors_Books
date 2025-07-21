@@ -23,7 +23,8 @@ class BookController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Books/Create');
+        $authors = Authors::all(['id', 'first_name', 'last_name']);
+        return Inertia::render('Books/Create', ['authors' => $authors]);
     }
 
     /**
@@ -34,7 +35,9 @@ class BookController extends Controller
         $request->validate([
             'name' => 'required',
             'publication_date' => 'required',
-            'edition'=> 'required'
+            'edition'=> 'required',
+            'authors'=> 'required|arry|min:1',
+            'authors.*'=> 'exists:author,id',
         ]);
 
         Book::create($request->only('name', 'publication_date', 'edition'));
@@ -67,7 +70,8 @@ class BookController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'publication_date' => 'required',
-            'edition'=> 'required|string|max:255'
+            'edition'=> 'required|string|max:255',
+
         ]);
 
         $book->update($request->only('name', 'publication_date', 'edition'));

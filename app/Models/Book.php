@@ -20,7 +20,7 @@ class Book extends Model
     /** *
      * Relación con autores (un libro tiene muchos autores)
     */
-    public function authors(): HasMany
+    public function authors()
     {
         return $this->belongsToMany(Author::class);
     }
