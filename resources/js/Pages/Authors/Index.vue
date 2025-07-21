@@ -30,7 +30,7 @@
                             <td class="px-4 py-2">{{ author.country }}</td>
                             <td class="px-4 py-2">
                                 <Link :href="`/authors/${author.id}/edit`" 
-                                    class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-md text-sm">
+                                    class="btn btn-primary text-white px-3 py-1">
                                     Editar
                                 </Link>
                             </td>
@@ -39,6 +39,12 @@
                                     class="bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 text-sm focus:outline-none" style="border-radius: 6px;">
                                     Ocultar
                                 </button>
+                            </td>
+                            <td class="px-4 py-2">
+                                <Link :href="`/authors/${author.id}`" 
+                                    class="btn btn-secondary text-white px-3 py-1">
+                                    Detalles
+                                </Link>
                             </td>
                         </tr>
                     </tbody>

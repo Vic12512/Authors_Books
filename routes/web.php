@@ -15,6 +15,8 @@ Route::post('/authors', [AuthorController::class, 'store'])->name('authors.store
 Route::get('/authors/{author}/edit', [AuthorController::class, 'edit'])->name('authors.edit');
 Route::put('/authors/{author}', [AuthorController::class, 'update'])->name('authors.update');
 Route::delete('/authors/{author}', [AuthorController::class, 'softDestroy'])->name('authors.softDestroy');
+Route::get('/authors/{author}', [AuthorController::class, 'show'])->name('authors.show');
+
 
 //rutas de Book
 Route::get('/books', [BookController::class, 'index'])->name('books.index');
