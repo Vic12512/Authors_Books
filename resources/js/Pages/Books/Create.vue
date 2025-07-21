@@ -6,32 +6,35 @@
             <h1 class="text-center mb-4 text-white">Crear Libros</h1>
 
             <form @submit.prevent="submit" class="d-grid gap-3">
+                <label for="Nombre" class="ml-3 fw-bold fs-5">Nombre</label>
                 <input 
                     v-model="name" 
                     type="text" 
-                    placeholder="Nombre" name="Nombre" id="Nombre"
+                    name="Nombre" id="Nombre"
                     class="form-control rounded-pill bg-dark text-light border-0 shadow-sm"
                 >
 
+                <label for="Fecha de publicación" class="ml-3 fw-bold fs-5">Fecha de publicación</label>
                 <input 
                     v-model="publication_date" 
                     type="date" 
-                    placeholder="Fecha de publicación" name="Fecha de publicación" id="Fecha de publicación"
+                    name="Fecha de publicación" id="Fecha de publicación"
                     class="form-control rounded-pill bg-dark text-light border-0 shadow-sm"
                 >
 
+                <label for="Edición" class="ml-3 fw-bold fs-5">Edición</label>
                 <input 
                     v-model="edition" 
                     type="text" 
-                    placeholder="Edición" name="Edición" id="Edición"
+                    name="Edición" id="Edición"
                     class="form-control rounded-pill bg-dark text-light border-0 shadow-sm"
                 >
 
+                <label for="Autor/es" class="ml-3 fw-bold fs-5">Autor/es</label>
                 <select 
                     v-model="bookAuthors" 
                     multiple 
-                    name="Autor/es" 
-                    id="Autor/es"
+                    name="Autor/es" id="Autor/es"
                     class="form-select bg-dark text-light rounded-3 shadow-sm"
                 >
                     <option 
@@ -42,7 +45,7 @@
                         {{ author.first_name }} {{ author.last_name }}
                     </option>
                 </select>
-                <button type="submit" class="btn btn-success rounded-pill py-2 px-4">Guardar</button>
+                <button type="submit" class="btn btn-success rounded-pill py-2 px-4 ml-3 fw-bold fs-5">Guardar</button>
 
             </form>
         </div>
