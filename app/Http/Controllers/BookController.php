@@ -13,7 +13,8 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::all();
+        // Error producido por sintaxis $books = Books::all(); en la cual la "S" producia un error de Class nor found
+        $books = Book::all(); 
         return Inertia::render('Books/Index', ['books' => $books]);
     }
 
@@ -36,7 +37,7 @@ class BookController extends Controller
             'edition'=> 'required'
         ]);
 
-        Author::create($request->only('name', 'publication_date', 'edition'));
+        Book::create($request->only('name', 'publication_date', 'edition'));
         return redirect()->route('books.index');
     }
 

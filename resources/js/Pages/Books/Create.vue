@@ -25,10 +25,10 @@
     
     //funciones
     function submit(){
-        router.post('/authors', {
+        router.post('/books', {
             name: name.value,
-            last_name: publication_date.value,
-            country: edition.value,
+            publication_date: publication_date.value,
+            edition: edition.value,
         })
     }
 

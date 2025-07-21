@@ -4,7 +4,7 @@
     <div>
         <h1>Vista de Libros</h1>
 
-        <a href="/books/create">Crear Autor</a>
+        <a href="/books/create">Crear Libro</a>
         <div>
             <table>
                 <thead>
