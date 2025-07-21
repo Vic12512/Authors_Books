@@ -17,4 +17,12 @@ class Author extends Model
         'country',
         'active',
     ];
+
+    /**
+     * Relación con libros (un autor tiene muchos libros)
+     */
+    public function books(): HasMany
+    {
+        return $this->hasMany(Book::class);
+    }
 }

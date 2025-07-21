@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Book extends Model
 {
@@ -15,4 +16,14 @@ class Book extends Model
         'publication_date',
         'edition',
     ];
+
+    /** *
+     * Relación con autores (un libro tiene muchos autores)
+    */
+    public function authors(): HasMany
+    {
+        return $this->belongsToMany(Author::class);
+    }
+  
+        
 }
