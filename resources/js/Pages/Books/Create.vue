@@ -19,7 +19,7 @@
                 placeholder="Edición" name="Edición" id="Edición"
             >
 
-            <select v-model="bookAuthors" name="Autor/es" id="Autor/es">
+            <select v-model="bookAuthors" multiple name="Autor/es" id="Autor/es">
                 <option v-for="author in props.authors" :key="author.id" :value="author.id">
                     {{ author.first_name }} {{ author.last_name }}
                 </option>
@@ -51,8 +51,12 @@
             name: name.value,
             publication_date: publication_date.value,
             edition: edition.value,
-            bookAuthors: bookAuthors.data,
+            authors: bookAuthors.value,
         })
+        console.log( name.value,
+             publication_date.value,
+         edition.value,
+           bookAuthors.value,)
     }
 
 </script>
