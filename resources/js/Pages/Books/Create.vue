@@ -55,7 +55,7 @@
 <script setup>
     //importaciones
     import {ref} from 'vue';
-    import {router} from '@inertiajs/vue3';
+    import { Head, Link, router } from '@inertiajs/vue3';
     import Lauyout from '../../Layout/Lauyout.vue';
 
 

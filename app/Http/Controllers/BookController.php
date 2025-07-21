@@ -94,7 +94,7 @@ class BookController extends Controller
     /**
      * Destroy the specified resource from storage.
      */
-    public function Destroy(Book $book)
+    public function destroy(Book $book)
     {
         $book->delete();
 

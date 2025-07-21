@@ -53,7 +53,7 @@
 </template>
 
 <script setup>
-    import { Link, router } from '@inertiajs/vue3';
+    import { Head, Link, router } from '@inertiajs/vue3';
     import Lauyout from '../../Layout/Lauyout.vue';
 
     defineProps({

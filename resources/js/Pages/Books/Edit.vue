@@ -40,7 +40,7 @@
 <script setup>
     //importaciones
     import {useForm} from '@inertiajs/vue3';
-    import {router} from '@inertiajs/vue3';
+    import { Head, Link, router } from '@inertiajs/vue3';
     import { defineProps } from 'vue';
     import Lauyout from '../../Layout/Lauyout.vue';
 

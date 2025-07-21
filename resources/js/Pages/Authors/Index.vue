@@ -3,8 +3,8 @@
 
     <Lauyout> 
         <div class="space-y-4">
-            <div >
-                <h1 class="text-2xl font-bold">Vista de Autores</h1>
+            <div class="flex justify-between items-center">
+                <h1>Vista de Autores</h1>
                 <div class="mb-3">
                     <a href="/authors/create" 
                         class="btn btn-success bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md ml-3 fw-bold fs-5">
@@ -56,7 +56,7 @@
 </template>
 
 <script setup>
-    import { Link, router } from '@inertiajs/vue3';
+    import { Head, Link, router } from '@inertiajs/vue3';
     import Lauyout from '../../Layout/Lauyout.vue';
 
     defineProps({
