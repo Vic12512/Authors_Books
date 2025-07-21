@@ -31,14 +31,14 @@
     });
 
     const form = useForm({
-        name: props.author.name,
-        publication_date: props.author.publication_date,
-        edition: props.author.edition
+        name: props.book.name,
+        publication_date: props.book.publication_date,
+        edition: props.book.edition
     })
     
     //funciones
     function submit(){
-        form.put(`/authors/${props.book.id}`)
+        form.put(`/books/${props.book.id}`)
     }
 
 </script>
