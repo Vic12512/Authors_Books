@@ -31,7 +31,7 @@ class AuthorController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'first_name' => 'required',
+            'first_name' => ['required', 'max:2'],
             'last_name' => 'required',
             'country'=> 'required'
         ]);

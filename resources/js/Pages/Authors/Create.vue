@@ -13,6 +13,7 @@
                     placeholder="Nombre" name="Nombre" id="Nombre"
                     class="form-control rounded-pill bg-dark text-light border-0 shadow-sm"
                 >
+                <span v-if="errors.first_name" class="text-danger ml-3">{{ errors.name }}</span>
 
                 <label for="Apellido" class="ml-3 fw-bold fs-5">Apellido</label>
                 <input 
@@ -38,15 +39,20 @@
 </template>
 
 <script setup>
-    //importaciones
+    /* //importaciones
     import {ref} from 'vue';
-    import { Head, Link, router } from '@inertiajs/vue3';
+    import { Head, Link, router, usePage } from '@inertiajs/vue3';
+
     import Lauyout from '../../Layout/Lauyout.vue';
+
 
     //Datos
     const first_name = ref('');
     const last_name = ref('');
     const country = ref('');
+
+    const page = usePage();
+    const errors = page.props.errors;
     
     //funciones
     function submit(){
@@ -55,6 +61,8 @@
             last_name: last_name.value,
             country: country.value,
         })
-    }
+    } */
+
+   
 
 </script>
