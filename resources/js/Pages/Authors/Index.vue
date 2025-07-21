@@ -4,6 +4,7 @@
     <div>
         <h1>Vista de Autores</h1>
 
+        <a href="/authors/create">Crear Autor</a>
         <div>
             <table>
                 <thead>

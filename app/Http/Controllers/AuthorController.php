@@ -21,7 +21,7 @@ class AuthorController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Authors/Create');
     }
 
     /**
@@ -29,7 +29,14 @@ class AuthorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'country'=> 'required'
+        ]);
+
+        Author::create($request->only('first_name', 'last_name', 'country'));
+        return redirect()->route('authors.index');
     }
 
     /**
