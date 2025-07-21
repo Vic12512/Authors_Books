@@ -44,7 +44,7 @@ class BookController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Author $author)
+    public function show(Book $book)
     {
         //
     }
@@ -52,10 +52,10 @@ class BookController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Author $author)
+    public function edit(Book $book)
     {
         return Inertia::render('Books/Edit', [
-            'book' => $author
+            'book' => $book
         ]);
     }
 
@@ -70,7 +70,7 @@ class BookController extends Controller
             'edition'=> 'required|string|max:255'
         ]);
 
-        $author->update($request->only('name', 'publication_date', 'edition'));
+        $book->update($request->only('name', 'publication_date', 'edition'));
         return redirect()->route('books.index');
     }
 
