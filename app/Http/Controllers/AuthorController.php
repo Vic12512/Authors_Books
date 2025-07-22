@@ -30,14 +30,15 @@ class AuthorController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'first_name' => ['required', 'max:2'],
-            'last_name' => 'required',
-            'country'=> 'required'
+        $validatedData = $request->validate([
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'country'=> ['required', 'string', 'max:255']
         ]);
 
-        Author::create($request->only('first_name', 'last_name', 'country'));
-        return redirect()->route('authors.index');
+
+        Author::create($validatedData->only('first_name', 'last_name', 'country'));
+        return redirect()->route('authors.index')->with('success', 'Autor creado exitosamente');
     }
 
     /**
