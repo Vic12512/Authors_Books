@@ -74,8 +74,8 @@
         router.post('/authors', {
             first_name: first_name.value,
             last_name: last_name.value,
-            country: country.value,
-        }, {
+            country: country.value,}, 
+            {
             onSuccess: () => {
                 first_name.value = '';
                 last_name.value = '';
