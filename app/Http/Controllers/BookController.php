@@ -7,6 +7,7 @@ use App\Models\Author;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
+
 class BookController extends Controller
 {
     /**
@@ -70,8 +71,12 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
+        $book->load('authors');
+        $authors = Author::all(['id', 'first_name', 'last_name']);
+
         return Inertia::render('Books/Edit', [
-            'book' => $book
+            'book' => $book,
+            'authors' => $authors,
         ]);
     }
 
@@ -84,8 +89,17 @@ class BookController extends Controller
             'name' => 'required|string|max:255',
             'publication_date' => 'required',
             'edition'=> 'required|string|max:255',
-
+            'authors'=> 'required|array|min:1',
+            'authors.*'=> 'exists:authors,id',
         ]);
+
+        $book = Book::update([
+            'name' => $validated['name'],
+            'publication_date' => $validated['publication_date'],
+            'edition'=> $validated['edition'],
+        ]);
+
+        $book->authors()->sync($validated['authors']);
 
         $book->update($request->only('name', 'publication_date', 'edition'));
         return redirect()->route('books.index');
