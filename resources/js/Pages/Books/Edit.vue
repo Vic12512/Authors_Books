@@ -89,7 +89,7 @@
     import {useForm, usePage } from '@inertiajs/vue3';
     import { defineProps, ref,  onMounted, computed, watch } from 'vue';
     import Lauyout from '../../Layout/Lauyout.vue';
-    import Multiselect from 'vue-multiselect'
+    import Multiselect from 'vue-multiselect';
     import 'vue-multiselect/dist/vue-multiselect.min.css';
 
     //Datos

@@ -42,7 +42,7 @@
                     <span v-if="errors.edition" class="invalid-feedback d-block">{{ errors.edition }}</span>
                 </div>
                 
-                <div>
+                <!-- <div>
                     <label for="Autor/es" class="ml-3 fw-bold fs-5">Autor/es</label>
                     <select 
                         v-model="bookAuthors" 
@@ -60,7 +60,25 @@
                         </option>
                     </select>
                     <span v-if="errors.authors" class="invalid-feedback d-block">{{ errors.authors }}</span>
+                </div> -->
+
+                <div>
+                    <label for="Autor/es" class="ml-3 fw-bold fs-5">Autor/es</label>
+                    <Multiselect
+                        v-model="bookAuthors"
+                        :options="authorsWithFullName"
+                        :multiple="true"
+                        :close-on-select="false"
+                        label="fullName"
+                        track-by="id"
+                        placeholder="Selecciona uno o varios autores"
+                        class="rounded-3 shadow-sm"
+                    />
+                    <span v-if="errors.authors" class="invalid-feedback d-block">{{ errors.authors }}</span>
                 </div>
+
+                
+
                 <button type="submit" class="btn btn-success rounded-pill py-2 px-4 ml-3 fw-bold fs-5">Guardar</button>
 
             </form>
@@ -70,10 +88,11 @@
 
 <script setup>
     //importaciones
-    import {ref, computed} from 'vue';
-    import { Head, Link, router, usePage } from '@inertiajs/vue3';
+    import { router, usePage,} from '@inertiajs/vue3';
+    import { defineProps, ref,  onMounted, computed, watch } from 'vue';
     import Lauyout from '../../Layout/Lauyout.vue';
-
+    import Multiselect from 'vue-multiselect';
+    import 'vue-multiselect/dist/vue-multiselect.min.css';
 
     //Datos
     const name = ref('');
@@ -88,15 +107,26 @@
     const props = defineProps({
         authors: Array
     });
+
+    const authorsWithFullName = computed(() =>
+        props.authors.map(a => ({
+            id: a.id,
+            fullName: `${a.first_name} ${a.last_name}`
+        }))
+    );
+
     
     //funciones
+
     function submit(){
+        const authorIds = bookAuthors.value.map(a => a.id);
+
         router.post('/books', 
             {
                 name: name.value,
                 publication_date: publication_date.value,
                 edition: edition.value,
-                authors: bookAuthors.value,
+                authors: authorIds,
             }, 
         
             {
