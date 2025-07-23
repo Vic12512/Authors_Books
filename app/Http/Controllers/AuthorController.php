@@ -36,8 +36,11 @@ class AuthorController extends Controller
             'country'=> ['required', 'string', 'max:255']
         ]);
 
-
-        Author::create($validatedData->only('first_name', 'last_name', 'country'));
+        Author::create([
+        'first_name' => $validatedData['first_name'],
+        'last_name' => $validatedData['last_name'],
+        'country' => $validatedData['country'],
+    ]);
         return redirect()->route('authors.index')->with('success', 'Autor creado exitosamente');
     }
 
