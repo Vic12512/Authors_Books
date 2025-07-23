@@ -85,7 +85,7 @@ class BookController extends Controller
      */
     public function update(Request $request, Book $book)
     {
-        $request->validate([
+        $validated = $request->validate([
             'name' => 'required|string|max:255',
             'publication_date' => 'required',
             'edition'=> 'required|string|max:255',
@@ -93,15 +93,19 @@ class BookController extends Controller
             'authors.*'=> 'exists:authors,id',
         ]);
 
-        $book = Book::update([
+        /* $book = Book::update([
             'name' => $validated['name'],
             'publication_date' => $validated['publication_date'],
             'edition'=> $validated['edition'],
-        ]);
+        ]); */
+
+        $book->update([
+            'name' => $validated['name'],
+            'publication_date' => $validated['publication_date'],
+            'edition'=> $validated['edition'],
+        ]); 
 
         $book->authors()->sync($validated['authors']);
-
-        $book->update($request->only('name', 'publication_date', 'edition'));
         return redirect()->route('books.index');
     }
 

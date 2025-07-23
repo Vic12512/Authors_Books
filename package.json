@@ -19,6 +19,7 @@
         "@popperjs/core": "^2.11.8",
         "@vitejs/plugin-vue": "^6.0.0",
         "bootstrap": "^5.3.7",
-        "vue": "^3.5.17"
+        "vue": "^3.5.17",
+        "vue-multiselect": "^3.2.0"
     }
 }
