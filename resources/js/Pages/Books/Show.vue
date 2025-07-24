@@ -2,8 +2,8 @@
 <template>
     <title>Show</title>
 
-    <Lauyout> 
-        <div class="text-center p-6 bg-[#1a1a1a] text-gray-200 rounded-lg shadow-lg max-w-3xl mx-auto mt-10">
+    <Layout> 
+        <div class="text-center p-6 bg-[#1a1a1a] text-gray-200 rounded-lg shadow-lg max-w-3xl mx-auto mt-10" >
             <h1 class="text-3xl font-bold text-[#4ade80] mb-8 border-b border-gray-700 pb-4">Detalles del Libro</h1>
 
             <div class="space-y-4">
@@ -48,16 +48,18 @@
             </div>
         </div>
            
-    </Lauyout>
+    </Layout>
 
 </template>
 
 <script setup>
     import { Head, Link, router } from '@inertiajs/vue3';
-    import Lauyout from '../../Layout/Lauyout.vue';
+    import Layout from '../../Layout/Layout.vue';
 
-    defineProps({
+    const props = defineProps({
         book: Object
     });
+
+    console.log('Montado Show.vue con:', props.book)
 
 </script>

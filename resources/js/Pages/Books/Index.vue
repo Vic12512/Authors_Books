@@ -1,7 +1,7 @@
 <template>
     <title>Index</title>
 
-    <Lauyout>
+    <Layout>
         <div class="space-y-4">
             <div class="flex justify-between items-center">
                 <h1>Vista de Libros</h1>
@@ -51,13 +51,13 @@
                 </table>
             </div>
         </div>
-    </Lauyout>
+    </Layout>
     
 </template>
 
 <script setup>
     import { Head, Link, router } from '@inertiajs/vue3';
-    import Lauyout from '../../Layout/Lauyout.vue';
+    import Layout from '../../Layout/Layout.vue';
 
     defineProps({
         books: Array

@@ -1,7 +1,7 @@
 <template>
     <title>Edit</title>
 
-    <Lauyout>
+    <Layout>
         <div class="mb-4">
             <h1 class="text-center mb-4 text-white">Editar Autor</h1>
 
@@ -47,7 +47,7 @@
 
             </form>        
         </div>
-    </Lauyout>
+    </Layout>
     
 </template>
 
@@ -56,7 +56,7 @@
     import {useForm} from '@inertiajs/vue3';
     import { Head, Link, router, usePage } from '@inertiajs/vue3';
     import { defineProps, computed } from 'vue';
-    import Lauyout from '../../Layout/Lauyout.vue';
+    import Layout from '../../Layout/Layout.vue';
 
     //Datos
     const errors = computed(

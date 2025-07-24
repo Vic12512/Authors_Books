@@ -1,7 +1,7 @@
 <template>
     <title>Create</title>
 
-    <Lauyout>
+    <Layout>
         <div>
             <h1 class="text-center mb-4 text-white">Crear Libros</h1>
 
@@ -83,14 +83,14 @@
 
             </form>
         </div>
-    </Lauyout>
+    </Layout>
 </template>
 
 <script setup>
     //importaciones
     import { router, usePage,} from '@inertiajs/vue3';
     import { defineProps, ref,  onMounted, computed, watch } from 'vue';
-    import Lauyout from '../../Layout/Lauyout.vue';
+    import Layout from '../../Layout/Layout.vue';
     import Multiselect from 'vue-multiselect';
     import 'vue-multiselect/dist/vue-multiselect.min.css';
 
@@ -132,9 +132,9 @@
             {
                 onSuccess: () => {
                     name.value = '';
-                    publication_date = '';
-                    edition = '';
-                    authors = [];
+                    publication_date.value = '';
+                    edition.value = '';
+                    bookAuthors.value = [];
                 }, 
 
                 onError: (errorObject) => {

@@ -1,7 +1,7 @@
 <template>
     <title>Create</title>
 
-    <Lauyout>
+    <Layout>
         <div>
             <h1 class="text-center mb-4 text-white">Crear Autor</h1>
 
@@ -47,7 +47,7 @@
 
             </form>
         </div>
-    </Lauyout>
+    </Layout>
 </template>
 
 <script setup>
@@ -56,7 +56,7 @@
     import { Head, Link, router, usePage } from '@inertiajs/vue3';
 
 
-    import Lauyout from '../../Layout/Lauyout.vue';
+    import Layout from '../../Layout/Layout.vue';
 
 
     //Datos

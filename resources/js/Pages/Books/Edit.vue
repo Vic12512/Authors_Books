@@ -1,7 +1,7 @@
 <template>
     <title>Edit</title>
 
-    <Lauyout>
+    <Layout>
         <div class=" mb-4">
             <h1 class="text-center mb-4 text-white">Editar Libros</h1>
 
@@ -81,14 +81,14 @@
 
             </form>
         </div>
-    </Lauyout>
+    </Layout>
 </template>
 
 <script setup>
     //importaciones
     import {useForm, usePage } from '@inertiajs/vue3';
     import { defineProps, ref,  onMounted, computed, watch } from 'vue';
-    import Lauyout from '../../Layout/Lauyout.vue';
+    import Layout from '../../Layout/Layout.vue';
     import Multiselect from 'vue-multiselect';
     import 'vue-multiselect/dist/vue-multiselect.min.css';
 
