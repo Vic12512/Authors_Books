@@ -6,6 +6,8 @@
             <h1 class="text-center mb-4 text-white">Editar Libros</h1>
 
             <form @submit.prevent="submit" class="d-grid gap-3">
+
+                <!-- Campo para el nombre -->
                 <div>
                     <label for="Nombre" class="ml-3 fw-bold fs-5">Nombre</label>
                     <input 
@@ -18,6 +20,7 @@
                     <span v-if="errors.name" class="invalid-feedback d-block">{{ errors.name }}</span>
                 </div>
 
+                <!-- Campo para la fecha de publicacion -->
                 <div>
                     <label for="Fecha de publicación" class="ml-3 fw-bold fs-5">Fecha de publicación</label>
                     <input 
@@ -31,6 +34,7 @@
                     <span v-if="errors.publication_date" class="invalid-feedback d-block">{{ errors.publication_date }}</span>
                 </div>
                 
+                <!-- Campo para la edicion -->
                 <div>
                     <label for="Edición" class="ml-3 fw-bold fs-5">Edición</label>
                     <input 
@@ -63,6 +67,7 @@
                     <span v-if="errors.authors" class="invalid-feedback d-block">{{ errors.authors }}</span>
                 </div> -->
 
+                <!-- Campo para los autores -->
                 <div>
                     <label for="Autor/es" class="ml-3 fw-bold fs-5">Autor/es</label>
                     <Multiselect
@@ -72,7 +77,8 @@
                         :close-on-select="false"
                         label="fullName"
                         track-by="id"
-                        placeholder="Selecciona uno o varios autores"                    
+                        placeholder="Selecciona uno o varios autores" 
+                        class="rounded-3 shadow-sm"                   
                     />
                     <span v-if="errors.authors" class="invalid-feedback d-block">{{ errors.authors }}</span>
                 </div>

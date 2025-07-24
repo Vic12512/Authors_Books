@@ -5,6 +5,8 @@
         <div class="space-y-4">
             <div class="flex justify-between items-center">
                 <h1>Vista de Libros</h1>
+
+                <!-- Boton Crea un libros -->
                 <div class="mb-3">
                     <a href="/books/create"
                         class="btn btn-success bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md ml-3 fw-bold fs-5">
@@ -15,6 +17,8 @@
             
             <div class="overflow-x-auto">
                 <table class="min-w-full bg-[#2C2C2C] rounded-lg overflow-hidden">
+
+                    <!-- Encabezados de tabla -->
                     <thead class="bg-[#3A3A3A] text-[#E0E0E0] ml-3 fw-bold fs-5">
                         <tr>
                             <td class="px-4 py-2 text-left">Nombre</td>
@@ -25,6 +29,8 @@
 
                     <tbody class="table-group-divider">
                         <tr v-for="book in books" :key="book.id" class="hover:bg-[#393939] border-b border-[#444]">
+
+                            <!-- Datos de libro -->
                             <td class="px-4 py-2">{{ book.name }}</td>
                             <td class="px-4 py-2">{{ book.publication_date }}</td>
                             <td class="px-4 py-2">{{ book.edition }}</td>
@@ -34,12 +40,16 @@
                                     Editar
                                 </Link>
                             </td>
+
+                            <!-- Boton Ocultar Autor -->
                             <td>
                                 <button @click="DestroyBooks(book.id)"
                                     class="bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 text-sm focus:outline-none" style="border-radius: 6px;">
                                     Eliminar
                                 </button>
                             </td>
+
+                            <!-- Boton Detalle Autor -->
                             <td class="px-4 py-2">
                                 <Link :href="`/books/${book.id}`" 
                                     class="btn btn-secondary text-white px-3 py-1">
@@ -52,17 +62,19 @@
             </div>
         </div>
     </Layout>
-    
 </template>
 
 <script setup>
-    import { Head, Link, router } from '@inertiajs/vue3';
+    //importaciones
+    import { Link, router } from '@inertiajs/vue3';
     import Layout from '../../Layout/Layout.vue';
 
+    //datos
     defineProps({
         books: Array
     });
 
+    //funciones
     function DestroyBooks(id) {
         router.delete(`/books/${id}`);
     }

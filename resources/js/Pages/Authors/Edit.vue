@@ -6,6 +6,8 @@
             <h1 class="text-center mb-4 text-white">Editar Autor</h1>
 
             <form @submit.prevent="submit" class="d-grid gap-3">
+
+                <!-- Campo para el nombre -->
                 <div>
                     <label for="Nombre" class="ml-3 fw-bold fs-5">Nombre</label>
                     <input 
@@ -18,6 +20,7 @@
                    <span v-if="errors.first_name" class="invalid-feedback d-block">{{ errors.first_name }}</span>
                 </div>
                 
+                <!-- Campo para el apellido -->
                 <div>
                     <label for="Apellido" class="ml-3 fw-bold fs-5">Apellido</label>
                     <input 
@@ -30,6 +33,7 @@
                     <span v-if="errors.last_name" class="invalid-feedback d-block">{{ errors.last_name }}</span> 
                 </div>
                 
+                <!-- Campo para el pais -->
                 <div>
                     <label for="País" class="ml-3 fw-bold fs-5">País</label>
                     <input 
@@ -54,7 +58,7 @@
 <script setup>
     //importaciones
     import {useForm} from '@inertiajs/vue3';
-    import { Head, Link, router, usePage } from '@inertiajs/vue3';
+    import { usePage } from '@inertiajs/vue3';
     import { defineProps, computed } from 'vue';
     import Layout from '../../Layout/Layout.vue';
 

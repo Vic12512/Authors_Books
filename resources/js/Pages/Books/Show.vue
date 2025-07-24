@@ -7,6 +7,8 @@
             <h1 class="text-3xl font-bold text-[#4ade80] mb-8 border-b border-gray-700 pb-4">Detalles del Libro</h1>
 
             <div class="space-y-4">
+
+                <!-- Muestra el nombre del libro -->
                 <p  class="text-lg">
                     <strong class="text-[#67e8f9]">
                         Nombre:
@@ -16,15 +18,17 @@
                     </span>
                 </p>
 
+                <!-- Muestra la edicion del libro -->
                 <p class="text-lg">
                     <strong class="text-[#67e8f9]">
-                        País:
+                        Edición:
                     </strong>
                     <span class="ml-2">
                         {{ book.edition }}
                     </span>
                 </p>
-
+                
+                <!-- Muestra la fecha de publicacion -->
                 <p class="text-lg">
                     <strong class="text-[#67e8f9]">
                         Fecha de publicación:
@@ -40,6 +44,7 @@
                     Autor/es
                 </h2>
 
+                <!-- Muestra el nombre del autor del libro -->
                 <ul class="list-disc list-inside text-gray-300 space-y-2 mr-10">
                     <li v-for="author in book.authors" :key="author.id">
                         {{author.first_name}} {{author.last_name}}
@@ -53,13 +58,12 @@
 </template>
 
 <script setup>
-    import { Head, Link, router } from '@inertiajs/vue3';
+    //importaciones
     import Layout from '../../Layout/Layout.vue';
 
+    //datos
     const props = defineProps({
         book: Object
     });
-
-    console.log('Montado Show.vue con:', props.book)
 
 </script>
